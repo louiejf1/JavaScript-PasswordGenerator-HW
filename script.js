@@ -1,49 +1,47 @@
-// DOM Elements
 
-const resultEl = Document.getElementById('result');
-const lenghtEl = Document.getElementById('length');
-const upperCaseEl = Document.getElementById('upperCase');
-const lowerCaseEl = Document.getElementById('lowerCase');
-const numbersEl = Document.getElementById('numbers');
-const symbolsEl = Document.getElementById('symbols');
-const clipbordEl = Document.getElementById('clipbord');
+// Varibles
+let pwLenght = 12;
 
+let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let lowerCase = 'abcdefghijklmnopqstuvwxyz';
+let symbols = "#$%&>?@";
+let numbers = '0123456789';
 
+// Temp place holder for item to include form DOM selection
+// DomItemsToInclude = '';
 
-// http://www.net-comber.com/charset.html
-
-const randomGenerator = {
-    lowerChar: getRandomLower,
-    upperChar: getRandomUpper,
-    numberChar: getRandomNum,
-    symbolChar: getRandomChar
-};
-
-generateEl.addEventListener('click',() => {
-        const lenghtValue = lenghtEl.value;
-
-        console.log(lenghtValue);
-    }
-
-)
+    // if (pwitems === lowerCase + upperCase + symbols + numbers) {
+    //     items = lowerCase + upperCase + symbols + numbers
+    // }
+    // if (pwitems === lowerCase + upperCase + symbols) {
+    //     items = lowerCase + upperCase + symbols
+    // }
+    // if (pwitems === lowerCase + upperCase) {
+    //     items = lowerCase + upperCase
+    // }
+    // else {
+    //     items = lowerCase
+    // };
 
 
-function getRandomLower () {
-    return String.fromCharCode(Math.floor(Math.random()* 26) + 97);
+// Items to inlcude in PW generator
+let includedItems = symbols + numbers + upperCase; //change to accept DomItemsToInclude 
+// console.log('included chars: ' + includedItems);
+
+
+let pwitems = includedItems;
+
+// Number of items to itirate over
+let n = includedItems.length;
+console.log('n is = ' + n + ' chars in length');
+
+// Location for Automatically generated PW
+let retVal = '';
+
+// Loop to randomly select chars include in includedItems
+
+for (let i = 0; i < pwLenght; i++) {
+    retVal += includedItems.charAt(Math.floor(Math.random() * n));
 }
-// console.log(getRandomLower());
 
-function getRandomUpper () {
-    return String.fromCharCode(Math.floor(Math.random()* 26) + 65);
-}
-// console.log(getRandomUpper());
-
-function getRandomNum() {
-    return String.fromCharCode(Math.floor(Math.random()* 10) + 48);
-}
-// console.log(getRandomNum());
-
-function getRandomChar() {
-    return String.fromCharCode(Math.floor(Math.random()* 6) + 33);
-}
-// console.log(getRandomChar());
+console.log(retVal + ' Length is :' + retVal.length);
