@@ -1,6 +1,29 @@
 
+// DOM
+
+let pwLocation = document.getElementById('passWordLocation').firstChild.nodeValue; //get value & location of PW location
+console.log(pwLocation);
+
+let pwUpperCaseLocation = document.getElementById('upperCase').checked; //get value & location of PW location
+console.log(pwUpperCaseLocation);
+
+let pwNumbrLocation = document.getElementById('lowerCase').checked; //get value & location of PW location
+console.log(pwNumbrLocation);
+
+let pwLowerLocation = document.getElementById('numbers').checked; //get value & location of PW location
+console.log(pwLowerLocation);
+
+let pwSymbolLocation = document.getElementById('symbols').checked; //get value & location of PW location
+console.log(pwSymbolLocation);
+
+
+let lenght = document.getElementById('pwlength');
+console.log(lenght);
+
+let pwLenght = 22;
+console.log('pwlength is '+pwLenght);
+
 // Varibles
-let pwLenght = 12;
 
 let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let lowerCase = 'abcdefghijklmnopqstuvwxyz';
@@ -10,30 +33,34 @@ let numbers = '0123456789';
 // Temp place holder for item to include form DOM selection
 // DomItemsToInclude = '';
 
-    // if (pwitems === lowerCase + upperCase + symbols + numbers) {
-    //     items = lowerCase + upperCase + symbols + numbers
-    // }
-    // if (pwitems === lowerCase + upperCase + symbols) {
-    //     items = lowerCase + upperCase + symbols
-    // }
-    // if (pwitems === lowerCase + upperCase) {
-    //     items = lowerCase + upperCase
-    // }
-    // else {
-    //     items = lowerCase
-    // };
+    if (pwUpperCaseLocation === true && pwNumbrLocation === true && pwLowerLocation === true && pwSymbolLocation === true) {
+        // items = lowerCase + upperCase + symbols + numbers
+        console.log('All True')
+        
+    }
+    if (pwUpperCaseLocation === true && pwLowerLocation === true && pwSymbolLocation === false) {
+        // items = lowerCase + upperCase + symbols
+        console.log('upper, lower, symbol, is  True')
+    }
+    if (pwUpperCaseLocation === true &&  pwLowerLocation === true) {
+        // items = lowerCase + upperCase
+        console.log('upper, lower, is  True')
+    }
+    else {
+        // items = lowerCase
+        console.log('Only Lower')
+    };
 
 
 // Items to inlcude in PW generator
 let includedItems = symbols + numbers + upperCase; //change to accept DomItemsToInclude 
-// console.log('included chars: ' + includedItems);
 
 
 let pwitems = includedItems;
 
 // Number of items to itirate over
 let n = includedItems.length;
-console.log('n is = ' + n + ' chars in length');
+
 
 // Location for Automatically generated PW
 let retVal = '';
@@ -44,4 +71,6 @@ for (let i = 0; i < pwLenght; i++) {
     retVal += includedItems.charAt(Math.floor(Math.random() * n));
 }
 
-console.log(retVal + ' Length is :' + retVal.length);
+pwLocation = retVal;
+console.log(' New pwLocation val is :' + pwLocation);
+
