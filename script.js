@@ -2,7 +2,7 @@
 // DOM
 
 let pwLocation = document.getElementById('passWordLocation').firstChild.nodeValue; //get value & location of PW location
-console.log(pwLocation);
+// console.log(pwLocation);
 
 let pwUpperCaseLocation = document.getElementById('upperCase').checked; //get value & location of PW location
 console.log(pwUpperCaseLocation);
@@ -17,13 +17,13 @@ let pwSymbolLocation = document.getElementById('symbols').checked; //get value &
 console.log(pwSymbolLocation);
 
 
-let lenght = document.getElementById('pwlength');
+let lenght = document.getElementById('pwlength').firstChild;
 console.log(lenght);
 
-let pwLenght = 22;
+let pwLenght = 20;
 console.log('pwlength is '+pwLenght);
 
-// Varibles
+// Varibles 
 
 let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let lowerCase = 'abcdefghijklmnopqstuvwxyz';
@@ -34,7 +34,7 @@ let numbers = '0123456789';
 // DomItemsToInclude = '';
 
     if (pwUpperCaseLocation === true && pwNumbrLocation === true && pwLowerLocation === true && pwSymbolLocation === true) {
-        // items = lowerCase + upperCase + symbols + numbers
+        // includedItems = lowerCase + upperCase + symbols + numbers
         console.log('All True')
         
     }
@@ -71,6 +71,6 @@ for (let i = 0; i < pwLenght; i++) {
     retVal += includedItems.charAt(Math.floor(Math.random() * n));
 }
 
-pwLocation = retVal;
+document.getElementById('passWordLocation').textContent = retVal;
 console.log(' New pwLocation val is :' + pwLocation);
 
